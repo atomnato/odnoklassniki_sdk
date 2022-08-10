@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok_app_id" translatable="false">512001204617</string>
+    <string name="ok_app_key" translatable="false">CKICGHKGDIHBABABA</string>
+    <string name="ok_redirect_url" translatable="false">okauth://ok512001204617</string>
+</resources>

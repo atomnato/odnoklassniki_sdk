@@ -10,6 +10,7 @@ class LoginCallback: OkListener {
 
     override fun onError(error: String?) {
         methodResult?.error("UNAVAILABLE", "OK login error", null)
+        methodResult = null
     }
 
     fun addPending(result: MethodChannel.Result) {
@@ -30,7 +31,10 @@ class LoginCallback: OkListener {
             hashmap["secret"] = secretKey
             hashmap["expires_in"] = expires_in
             methodResult?.success(hashmap)
+            methodResult = null
+
         } catch (exception: JSONException) {
+            methodResult = null
             onError(exception.localizedMessage)
         }
 

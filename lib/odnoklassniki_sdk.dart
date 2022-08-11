@@ -4,8 +4,12 @@ class OdnoklassnikiSdk {
   static const MethodChannel _channel = MethodChannel('odnoklassniki_sdk');
 
   static Future<OkToken> login() async {
-    final response = await _channel.invokeMethod('logIn');
-    return OkToken(response['access_token'], response['secret']);
+    try{
+      final response = await _channel.invokeMethod('logIn');
+      return OkToken(response['access_token'], response['secret']);
+    }on PlatformException {
+      rethrow;
+    }
   }
 
 }
